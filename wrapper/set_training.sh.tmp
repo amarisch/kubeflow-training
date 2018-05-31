@@ -1,0 +1,4 @@
+cd {{ ksonnet_folder }} && ks param set tfjob-pvc image {{ docker_repo }}/{{ docker_image_name }}:{{ docker_image_version }} && \
+ks param set tfjob-pvc input_data /data/{{ input_data }} &&\
+ks param set tfjob-pvc output_model /data/model.h5 &&\
+ks param set tfjob-pvc sample_size {{ sample_size }}

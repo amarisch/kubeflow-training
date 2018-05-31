@@ -1,0 +1,1 @@
+docker push amarischen/seq2seq-training:1.0

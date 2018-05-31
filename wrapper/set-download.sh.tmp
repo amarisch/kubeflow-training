@@ -1,0 +1,4 @@
+# cd to the folder with app.yaml
+cd {{ ksonnet_folder }} && ks param set data-downloader dataUrl {{ data_url }} && \
+ks param set data-downloader dataPath /data && \
+ks param set data-downloader pvcName {{ pvc_name }}

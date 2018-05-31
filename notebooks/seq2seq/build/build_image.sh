@@ -1,0 +1,1 @@
+docker build --force-rm=true -t amarischen/seq2seq-training:1.0 .

@@ -1,0 +1,11 @@
+FROM python:2
+
+RUN pip install argparse
+RUN pip install jinja2
+
+RUN mkdir -p /workdir
+ADD wrap_training_docker.py /workdir
+ADD Makefile /workdir
+ADD *.tmp /workdir/
+WORKDIR /workdir
+ENTRYPOINT ["python", "wrap_training_docker.py"]
