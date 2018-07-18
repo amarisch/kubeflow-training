@@ -34,7 +34,7 @@ local downLoader = {
         containers: [
           {
             command: [
-              "/bin/ash",
+              "/bin/bash",
               "/scripts/download_data.sh",
               params.dataUrl,
               params.dataPath,              
