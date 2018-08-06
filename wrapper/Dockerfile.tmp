@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.6
 
 # create data mount folder
 RUN mkdir -p /data
@@ -8,7 +8,7 @@ RUN chmod ugo+w /data
 RUN chmod ugo+w /workdir
 
 COPY requirements.txt /workdir/requirements.txt
-RUN pip install -r /workdir/requirements.txt
+RUN pip3 install -r /workdir/requirements.txt
 
 COPY *.py /workdir/
 

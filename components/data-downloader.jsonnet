@@ -1,10 +1,10 @@
 // Run a job to download the data to a persistent volume.
 //
 local env = std.extVar("__ksonnet/environments");
-local params = std.extVar("__ksonnet/params").components["data-downloader"];
+local overrideParams = std.extVar("__ksonnet/params").components["data-pvc"];
 local k = import "k.libsonnet";
 
-// Edit this download_data script for different model
+
 local script = importstr "download_data.sh";
 
 local scriptConfigMap = {
@@ -20,6 +20,13 @@ local scriptConfigMap = {
   },
 };
 
+local params = {
+  // Default location for the data. Should be a directory on the PVC.
+  dataPath: "/demo",
+  dataUrl: "https://storage.googleapis.com/kubeflow-examples/github-issue-summarization-data/github-issues.zip",
+  pvcName: "data-pvc",
+} + overrideParams;
+
 local downLoader = {
   apiVersion: "batch/v1",
   kind: "Job",
@@ -34,13 +41,12 @@ local downLoader = {
         containers: [
           {
             command: [
-              "/bin/bash",
+              "/bin/ash",
               "/scripts/download_data.sh",
               params.dataUrl,
-              params.dataPath,              
+              params.dataPath,
             ],
             image: "busybox",
-            imagePullPolicy: "IfNotPresent",
             name: "downloader",
             volumeMounts: [
               {
@@ -49,7 +55,7 @@ local downLoader = {
               },
               {
                 name: "data",
-                mountPath: "/data",
+                mountPath: "/demo",
               },
             ],
           },
@@ -75,3 +81,4 @@ local downLoader = {
 };
 
 std.prune(k.core.v1.list.new([downLoader, scriptConfigMap]))
+

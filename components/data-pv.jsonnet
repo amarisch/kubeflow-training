@@ -15,7 +15,7 @@ local pv = {
     }
   },
   spec: {
-    storageClassName: "slow",
+    storageClassName: "fast",
     accessModes: [
       "ReadWriteOnce",
     ],
@@ -23,7 +23,7 @@ local pv = {
       storage: "10Gi"
     },
     hostPath: {
-      path: "/mnt/data"
+      path: "/demo"
     },
   },
 };

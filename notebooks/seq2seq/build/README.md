@@ -1,14 +1,14 @@
-Training: seq2seq
+Training: demo
 
 This microservice was wrapped using the Seldon Core Wrappers.
 
 Wrapping Parameters:
- - docker_image_name: seq2seq-training
- - docker_repo: amarischen
+ - docker_image_name: demo-training
+ - docker_repo: ysunglai
  - pvc_name: data-pvc
- - ksonnet_folder: /home/0656072/kubeflow_Learning/my-kubeflow
- - sample_size: 20000
- - docker_image_version: 1.0
+ - ksonnet_folder: ./
+ - sample_size: 2000
+ - docker_image_version: 4.0
  - input_data: github_issues.csv
- - model_name: seq2seq
+ - model_name: demo
  - train_folder: /data
