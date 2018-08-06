@@ -25,3 +25,21 @@ In this step, you should check your mount file path, or you will encounter somet
 
 ## Step 5 && Step 6
 Let's serving.
+
+step5
+Seldon Core uses ambassador to route it's requests. To send requests to the model, you can port-forward the ambassador container locally:
+
+```
+     kubectl port-forward $(kubectl get pods -n ${NAMESPACE} -l service=ambassador -o jsonpath='{.items[0].metadata.name}') -n ${NAMESPACE} 8080:80
+```
+
+```
+     curl -X POST -H 'Content-Type: application/json' -d '{"data":{"ndarray":[["issue overview add a new property to disable detection of image stream files those ended with -is.yml from target directory. expected behaviour by default cube should not process image stream files if user does not set it. current behaviour cube always try to execute -is.yml files which can cause some problems in most of cases, for example if you are using kuberentes instead of openshift or if you use together fabric8 maven plugin with cube"]]}}' http://localhost:8080/seldon/issue-summarization/api/v0.1/predictions
+```
+step 6
+We use ambassador to route requests to the frontend. You can port-forward the ambassador container locally:
+
+```
+   kubectl port-forward $(kubectl get pods -n ${NAMESPACE} -l service=ambassador -o jsonpath='{.items[0].metadata.name}') -n ${NAMESPACE} 8080:80
+```
+
