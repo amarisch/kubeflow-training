@@ -1,1 +1,1 @@
-docker push amarischen/seq2seq-training:1.0
+docker push ysunglai/demo-training:4.0

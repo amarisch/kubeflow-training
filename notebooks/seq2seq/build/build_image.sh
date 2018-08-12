@@ -1,1 +1,1 @@
-docker build --force-rm=true -t amarischen/seq2seq-training:1.0 .
+docker build --force-rm=true -t ysunglai/demo-training:4.0 .

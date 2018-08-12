@@ -14,7 +14,7 @@ local pvc = {
     namespace: env.namespace,
   },
   spec: {
-    storageClassName: "slow",
+    storageClassName: "fast",
     accessModes: [
       "ReadWriteOnce",
     ],

@@ -64,7 +64,7 @@ if __name__ == "__main__":
     parser.add_argument("pvc_name", type=str, help="PVC name. Assume PV and PVC have been set up")
     parser.add_argument("input_data", type=str, help="Data file/folder name to be read by train.py")
     parser.add_argument("sample_size", type=int, help="training sample size")
-
+#parser.add_argument("--base-image", type=str, default="python:2", help="The base docker image to inherit from. Defaults to python:2. Caution: this must be a debian based image.")
     parser.add_argument("--out-folder", type=str, default=None, help="Path to the folder where the build folder containing the pre-wrapped model will be created. Defaults to the model directory.")
     parser.add_argument("-f", "--force", action="store_true", help="When this flag is present the script will overwrite the contents of the output folder even if it already exists. By default the script would abort.")
     parser.add_argument("--image-name",type=str, default=None,help="Name to give to the model's docker image. Defaults to model_name-training.")
@@ -90,3 +90,4 @@ if __name__ == "__main__":
         train_folder = model_folder,
         input_data = args.input_data,
         sample_size = args.sample_size,)
+#base_image = args.base_image,)

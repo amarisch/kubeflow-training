@@ -1,7 +1,7 @@
 # Change to your docker repo ID
 # In order to push and pull image from your docker account,
 # you must have your docker ID in the image name follow by /[image name]
-REPO := amarischen
+REPO := ysunglai
 
 # choose the model folder
 MODELFOLDER := seq2seq
@@ -12,7 +12,7 @@ IMG := training
 TAG := $(shell date +v%Y%m%d)
 
 build:
-    docker build -f $(MODELFOLDER)/Dockerfile -t $(REPO)/$(IMG) $(MODELFOLDER)/
+    docker build -f $(MODELFOLDER)/build/Dockerfile -t $(REPO)/$(IMG) $(MODELFOLDER)/
 
 push: build
     docker push $(REPO)/$(IMG)

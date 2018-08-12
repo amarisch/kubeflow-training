@@ -7,7 +7,7 @@ local tfjob = {
     apiVersion: "kubeflow.org/v1alpha1",
     kind: "TFJob",
     metadata: {
-      name: "tf-job-issue-summarization-pvc",
+      name: "tf-job-issue-demo-pvc",
       namespace: env.namespace,
     },
     spec: {
@@ -24,7 +24,7 @@ local tfjob = {
                   volumeMounts: [
                     {
                       name: "data",
-                      mountPath: "/data",                    
+                      mountPath: "/demo",                    
                     },
                   ],
                   command: [
@@ -32,7 +32,9 @@ local tfjob = {
                     "train.py",
                     "--sample_size=" + std.toString(params.sample_size),
                     "--input_data=" + params.input_data,
-                    "--output_model=/data/model.h5",                    
+                    "--output_model=/demo/model.h5",
+		    "--output_body_preprocessor_dpkl=/demo/body_preprocessor.dpkl",
+		    "--output_title_preprocessor_dpkl=/demo/title_preprocessor.dpkl",                    
                   ],
                 },
               ],

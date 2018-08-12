@@ -2,6 +2,10 @@ numpy
 keras
 dill
 matplotlib
+pandas
+Flask
+futures
+redis
 tensorflow
 annoy
 tqdm
