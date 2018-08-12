@@ -1,4 +1,5 @@
 # SCRIPT ROLUE
+End-to-end training with Kubeflow, here is your step by step guide
 
 ## Step 1
 The step is independent, and you can directly execute in your new folder.
