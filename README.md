@@ -7,7 +7,7 @@ This training wrapper helps you to organize and package files for kubeflow train
 * Model folder: this model folder must contain the following  
     * __train.py__  train.py takes in input data file(s) and outputs a model file (.h5 or etc). You can follow my train.py template.  
     * any files created for train.py such as a utils.py file  
-    * __requirements.txt__  listing any pythin packages required by the above python files.  
+    * __requirements.txt__  listing any python packages required by the above python files.  
   
 * input data: downloaded and stored in a location accessible by the cluster.  
 * PVC name: you must have created a PV and PVC with a mounted folder where your input and output files are located  
@@ -68,3 +68,7 @@ cd /path/to/ksonnet/folder
 ks apply [env] -c tfjob-pvc
 ```
 The resulting trained model file will be outputed to the disk from which you mounted your PV
+
+### Serving model
+We use seldon-serve-simple-v1alpha1 to serve our runtime model. If you want to use seldon-serve-simple-v1alpha2, you need to set the seldonVersion parameter to one in the 0.2.x range.
+

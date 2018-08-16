@@ -11,13 +11,11 @@ KF_ENV=default
 cd ../../
 
 # Generate component
-'''
-ks generate seldon-serve-simple demo-test-serving \
+ks generate seldon-serve-simple-v1alpha1 demo-test-serving \
   --name=demo-serving \
-  --image=amarischen/issue-summarization:0.1 \
-  --namespace=${NAMESPACE} \
+  --image=ysunglai/issue-summarization \
   --replicas=2
-'''
+
 #You can directly use the jsonnet in the compoents
 
 

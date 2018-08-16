@@ -1,0 +1,11 @@
+numpy
+dill
+pandas
+Flask
+futures
+redis
+annoy
+tqdm
+nltk
+ktext
+h5py

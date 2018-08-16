@@ -13,4 +13,5 @@ kubectl create clusterrolebinding seldon-admin --clusterrole=cluster-admin --ser
 ks pkg install kubeflow/seldon
 # Generate the seldon component and deploy it
 ks generate seldon seldon --name=seldon --namespace=${NAMESPACE}
+ks param set seldon seldonVersion 0.1.5
 ks apply ${KF_ENV} -c seldon
